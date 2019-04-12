@@ -64,26 +64,26 @@ while True:
 
     process_this_frame = not process_this_frame
 
-    # แสดงผลลัพธ์
+  
     for (top, right, bottom, left), name in zip(face_locations, face_names):
-        # ขยายเฟรมที่ลดลงเหลือ 1/4 ให้กลับไปอยู่ในขนาดเดิม
+        
         top *= 4
         right *= 4
         bottom *= 4
         left *= 4
 
-        # วาดกล่อง
+      
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
-        # เขียนตัวหนังสือทีกรอบ
+        
         cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
         font = cv2.FONT_HERSHEY_DUPLEX
         cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
 
-    # แสดงรูปภาพ
+  
     cv2.imshow('Video', frame)
 
-    # กด q เพื่อปิด
+  
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
